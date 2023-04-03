@@ -21,8 +21,10 @@ jobs:
       run: dotnet build ./SfdScriptUtil -f net461
       
       
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: MSIX Package
-        path: ${{ env.Wap_Project_Directory }}\AppPackages
+    - name: Create Release
+      uses: fnkr/github-action-ghr@v1
+      env:
+        GHR_COMPRESS: zip
+        GHR_PATH: bin\Debug
+        GHR_DELETE: true
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
