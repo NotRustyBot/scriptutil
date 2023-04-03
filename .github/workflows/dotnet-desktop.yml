@@ -34,4 +34,4 @@ jobs:
         overwrite: 'true'
         release_tag: tag_version
         files: |
-          SfdScriptUtil/bin/Debug/scriptutil.exe
+          SfdScriptUtil/SfdScriptUtil/bin/Debug/scriptutil.exe
