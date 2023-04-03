@@ -29,5 +29,5 @@ jobs:
     - name: Create Release
       uses: softprops/action-gh-release@v0.1.15
       with:
-        tag_name: tag_version
+        tag_name: ${{ steps.tag_version.new_tag  }}
         files: SfdScriptUtil/bin/Debug/scriptutil.exe
