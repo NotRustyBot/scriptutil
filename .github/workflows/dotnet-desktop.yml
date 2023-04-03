@@ -27,10 +27,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Create Release
-      uses: SierraSoftworks/gh-releases@v1.0.7
+      uses: softprops/action-gh-release@v0.1.15
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        overwrite: 'true'
-        release_tag: tag_version
-        files: |
-            .gitignore
+        tag_name: tag_version
+        files: SfdScriptUtil/bin/Debug/scriptutil.exe
