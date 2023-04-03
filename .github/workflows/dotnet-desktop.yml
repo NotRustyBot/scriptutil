@@ -26,8 +26,6 @@ jobs:
       uses: mathieudutour/github-tag-action@v6.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Run Tree
-      run: tree
     - name: Create Release
       uses: SierraSoftworks/gh-releases@v1.0.7
       with:
@@ -35,4 +33,4 @@ jobs:
         overwrite: 'true'
         release_tag: tag_version
         files: |
-            bin/Debug/scriptutil.exe
+            .gitignore
