@@ -20,6 +20,11 @@ jobs:
     - name: Build DotNet
       run: dotnet build ./SfdScriptUtil -f net461
       
+    - name: Bump version and push tag
+      id: tag_version
+      uses: mathieudutour/github-tag-action@v6.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
       
     - name: Create Release
       uses: SierraSoftworks/gh-releases@v1.0.7
