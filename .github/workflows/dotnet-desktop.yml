@@ -22,9 +22,9 @@ jobs:
       
       
     - name: Create Release
-      uses: fnkr/github-action-ghr@v1
-      env:
-        GHR_COMPRESS: zip
-        GHR_PATH: bin\Debug
-        GHR_DELETE: true
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: SierraSoftworks/gh-releases@v1.0.7
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        overwrite: 'true'
+        files: |
+          SfdScriptUtil\bin\Debug\scriptutil.exe
