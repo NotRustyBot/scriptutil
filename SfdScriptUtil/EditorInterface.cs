@@ -30,7 +30,7 @@ namespace SfdScriptUtil
             return handles;
         }
 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        [DllImport("user32.dll")]
         private static extern int SetForegroundWindow(IntPtr hwnd);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]

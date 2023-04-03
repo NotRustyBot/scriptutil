@@ -13,7 +13,6 @@ namespace SfdScriptUtil
         public const string startClass = "/* CLASS STARTS HERE - COPY BELOW INTO THE SCRIPT WINDOW */";
         public const string endClass = "/* CLASS ENDS HERE - COPY ABOVE INTO THE SCRIPT WINDOW */";
 
-
         public static string GetCsprojString()
         {
             string steampath = @"C:\Program Files (x86)\Steam";
