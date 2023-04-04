@@ -34,6 +34,12 @@ namespace SfdScriptUtil
                 return;
             }
 
+            if (args.Length > 1 && args[0] == "class")
+            {
+                Class(args[1]);
+                return;
+            }
+
             bool dryRun = true;
 
             List<string> outputPaths = new List<string>();
@@ -183,6 +189,14 @@ namespace SfdScriptUtil
                 EditorInterface.PasteScript(editorScript);
                 EditorInterface.StartMap();
             }
+        }
+
+        private static void Class(string filename)
+        {
+            if (filename.EndsWith(".cs")) filename = filename.Replace(".cs", "");
+            Console.WriteLine("creating " + filename + ".cs");
+            File.WriteAllText(filename, GetCsprojString());
+            File.WriteAllText(filename, classStart + "\r\n\r\n" + classEnd);
         }
 
         private static void ShowHelp()
