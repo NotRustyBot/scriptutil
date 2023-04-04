@@ -12,7 +12,7 @@ develop your code with (make sure script editor is open)
 `scriptutil -s ./MyFancyProject -d false`
 
 SFR support  
-`scriptutil -s ./MyFancyProject -d false -r`
+`scriptutil -s ./MyFancyProject -d false -r true`
 
 as an external script  
 `scriptutil -s ./MyFancyProject -o "C:/Users.../Scripts/MyFancyScript.txt"`
