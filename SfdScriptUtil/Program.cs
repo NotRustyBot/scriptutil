@@ -28,15 +28,25 @@ namespace SfdScriptUtil
                 return;
             }
 
-            if (args.Length > 1 && args[0] == "init")
+            if (args.Length > 0 && args[0] == "init")
             {
-                Init(args[1]);
+                if (args.Length > 1)
+                {
+                    Init(args[1]);
+                    return;
+                }
+                Init();
                 return;
             }
 
-            if (args.Length > 1 && args[0] == "class")
+            if (args.Length > 0 && args[0] == "class")
             {
-                Class(args[1]);
+                if (args.Length > 1)
+                {
+                    Class(args[1]);
+                    return;
+                }
+                Class("Class");
                 return;
             }
 
@@ -193,8 +203,8 @@ namespace SfdScriptUtil
 
         private static void Class(string filename)
         {
-            if (filename.EndsWith(".cs")) filename = filename.Replace(".cs", "");
-            Console.WriteLine("creating " + filename + ".cs");
+            if (!filename.EndsWith(".cs")) filename = filename + ".cs";
+            Console.WriteLine("creating " + filename);
             File.WriteAllText(filename, GetCsprojString());
             File.WriteAllText(filename, classStart + "\r\n\r\n" + classEnd);
         }
@@ -219,6 +229,7 @@ namespace SfdScriptUtil
             Console.WriteLine("special commands");
             Console.WriteLine("u | uncompile".PadRight(30) + "creates project files from clipboard");
             Console.WriteLine("init".PadRight(30) + "creates empty project");
+            Console.WriteLine("class".PadRight(30) + "creates new class file");
 
         }
 
