@@ -1,4 +1,4 @@
-name: .NET Core Desktop
+name: Release
 
 on:
   push:
@@ -9,6 +9,7 @@ on:
 jobs:
 
   build:
+    permissions: write-all
     runs-on: windows-latest
 
     steps:
@@ -20,11 +21,13 @@ jobs:
     - name: Build DotNet
       run: dotnet build ./SfdScriptUtil -f net461
       
-      
+    - name: Bump version and push tag
+      id: tag_version
+      uses: mathieudutour/github-tag-action@v6.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Create Release
-      uses: fnkr/github-action-ghr@v1
-      env:
-        GHR_COMPRESS: zip
-        GHR_PATH: bin\Debug
-        GHR_DELETE: true
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: softprops/action-gh-release@v0.1.15
+      with:
+        tag_name: ${{ steps.tag_version.outputs.new_tag  }}
+        files: SfdScriptUtil/bin/Debug/scriptutil.exe
