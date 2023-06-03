@@ -12,6 +12,7 @@ namespace SfdScriptUtil
 
     class Program
     {
+
         static Dictionary<string, List<string>> configuration = new Dictionary<string, List<string>>();
         [STAThread]
         static void Main(string[] args)
@@ -49,6 +50,9 @@ namespace SfdScriptUtil
                 Class("Class");
                 return;
             }
+
+
+
 
             bool dryRun = true;
 
@@ -165,7 +169,7 @@ namespace SfdScriptUtil
             {
                 foreach (string path in Directory.GetFiles(dir))
                 {
-                    if (path.ToLower().EndsWith(".cs") && !excludeFiles.Contains(path))
+                    if (path.ToLower().EndsWith(".cs") && !excludeFiles.Any(e => path.EndsWith(e)))
                     {
                         string content = File.ReadAllText(path);
                         content = content.Replace(startClass, start).Replace(endClass, end);
