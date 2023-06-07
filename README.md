@@ -47,3 +47,20 @@ special commands
 u | uncompile                 creates project files from clipboard
 init                          creates empty project
 ```
+
+### Using with Visual Studio  
+You can run scriptutil when you "start" your program in VS (when you press F5). To achive that:  
+ - Open your project  
+ - Select `YourProjectName Debug Properties` in the start menu  
+![image](https://github.com/NotRustyBot/scriptutil/assets/65828047/cbcceafa-2e24-4e31-9afd-77dc14f0099d)
+  
+- Select `Start External Program`
+- Point it to scriptutil.exe
+- In command line arguments, write: `-s . -d false` (or any other commandline parameters scriptutil supports, that fit your needs)
+- For `Working Directory` specify the location of your source files, like Program.cs
+
+![image](https://github.com/NotRustyBot/scriptutil/assets/65828047/5883f4b2-6a78-41e4-9503-b6754ad5d7b1)
+
+- hit Ctrl + S to save the config
+- Make sure SFD Map Editor is running, and Script Window is open
+- Hit F5, you will be warned that the build failed. Check the "don't ask again" checkbox, and hit yes
