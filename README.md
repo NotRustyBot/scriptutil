@@ -2,7 +2,7 @@
 
 # scriptutil
 yet another SFD utility to help you write more complex code easier
-
+[download latest build](https://github.com/NotRustyBot/scriptutil/releases/latest/download/scriptutil.exe)
 
 ### basic usage:  
 create new project using  
