@@ -1,7 +1,7 @@
 [![Release](https://github.com/NotRustyBot/scriptutil/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/NotRustyBot/scriptutil/actions/workflows/dotnet-desktop.yml)
 
 # scriptutil
-yet another SFD utility to help you write more complex code easier
+yet another SFD utility to help you write more complex code easier  
 [download latest build](https://github.com/NotRustyBot/scriptutil/releases/latest/download/scriptutil.exe)
 
 ### basic usage:  
