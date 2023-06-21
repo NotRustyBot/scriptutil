@@ -13,7 +13,7 @@ namespace SfdScriptUtil
 
     class Program
     {
-        static string version = "v1.1.2";
+        static string version = "v1.2.1";
         static Dictionary<string, List<string>> configuration = new Dictionary<string, List<string>>();
         [STAThread]
         static void Main(string[] args)
