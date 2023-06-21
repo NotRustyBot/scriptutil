@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Net;
 using static SfdScriptUtil.TemplateStrings;
 
 namespace SfdScriptUtil
@@ -12,7 +13,7 @@ namespace SfdScriptUtil
 
     class Program
     {
-
+        static string version = "v1.1.2";
         static Dictionary<string, List<string>> configuration = new Dictionary<string, List<string>>();
         [STAThread]
         static void Main(string[] args)
@@ -23,7 +24,7 @@ namespace SfdScriptUtil
                 return;
             }
 
-            if (args.Length == 1 && (args[0] == "-u" || args[0] == "--uncompile"))
+            if (args.Length == 1 && (args[0] == "u" || args[0] == "uncompile"))
             {
                 Reconstruct();
                 return;
@@ -202,6 +203,18 @@ namespace SfdScriptUtil
             {
                 EditorInterface.PasteScript(editorScript);
                 EditorInterface.StartMap();
+            }
+
+            VersionCheck();
+        }
+
+        private static void VersionCheck()
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://github.com/NotRustyBot/scriptutil/releases/latest/");
+            string newest = request.GetResponse().ResponseUri.Segments.Last();
+            if (newest != version)
+            {
+                Console.WriteLine("new version \x1b[33m[" + newest + "]\x1b[0m is available: " + "https://github.com/NotRustyBot/scriptutil/releases/latest/");
             }
         }
 

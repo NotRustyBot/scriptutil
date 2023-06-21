@@ -28,6 +28,7 @@ namespace SfdScriptUtil
             return @"<Project Sdk=""Microsoft.NET.Sdk"">
   <PropertyGroup>
     <TargetFramework>net4.6.2</TargetFramework>
+    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include=""SFD.GameScriptInterface"">

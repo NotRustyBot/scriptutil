@@ -70,6 +70,8 @@ namespace SfdScriptUtil
             if (SetForegroundWindow(scriptWindow) != 0)
             {
                 string temp = Clipboard.GetText();
+                if (temp == String.Empty) temp = " ";
+                if (text == String.Empty) text = "//nothing to paste";
                 Clipboard.SetText(text);
                 SendKeys.SendWait("^a");
                 SendKeys.SendWait("{DEL}");
